@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Test of JQuery </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        function changePara() {
+            $("div#mypara>#subpara").css("border", "1px solid red").css("backgroundColor", "yellow");
+            // select id=subpara inside a div with id=mypara
+            // space can be used in jQuery instead of a / in XPath
+            // can also use $("div#mypara p#subpara")
+            // $("div#mypara p")  will select all p inside mypara
+            // $("div#mypara p[id=subpara]")
+        }
+
+        function changePara2() {
+            $('html>body>div>p[id=subpara]').css("border", "1px solid red").css("backgroundColor", "yellow");
+            //$('div>p[id=subpara]') // means any level 
+            //$('div>p[id*="sub"]')  //* means anywhere in id
+            // $('div>p[id^="sub"]')  //^ means starts with
+            //$('div>p[id$="bpara"]')// $ means ends with
+        }
+
+        function searchPara() {
+            var ptext = $('div>p[id="subpara"]').text();
+            // .text()  action returns the text content of an element
+            var psel = $('div>p[id="subpara"]')
+            if (ptext.indexOf("inside") >= 0)
+                psel.css("border", "1px solid red").css("backgroundColor", "yellow");
+        }
+    </script>
+</head>
+<body>
+    <p> jquery selection via XPath </p>
+
+    <div id="mypara">
+        jQuery uses XPath like syntax to select an element.
+        <p id="subpara">a paragraph inside a div</p>
+    </div>
+
+    <input type="button" value="Change Para Style (selection)" onclick="changePara()" name="btnApply" />
+    <input type="button" value="Change Para Style 2 (selection)" onclick="changePara2()" name="btnApply2" />
+    <input type="button" value="Search Para" onclick="searchPara()" name="btnApply" />
+</body>
+</html>

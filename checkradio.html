@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- CheckRadioJQ.htm -->
+<head>
+    <title>Radio Buttons Processing via JQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+                $('#btnSubmit').click(processForm);
+        });
+
+        function processForm() {
+            var checkedChoices = "";
+            $("input[type=checkbox]").each(function () {
+                if (this.checked)
+                    checkedChoices += $(this).val() + " ";
+        });
+            radChecked = $("input[name='rating']:checked").val();
+            var txtFeedback = $("#txaComments").val();
+            var email = $("#txtEmail").val();
+            alert("You selected \n" + checkedChoices + "\n" + radChecked + "\n" +
+                 txtFeedback + "\n Your email: " +
+                 email);
+        }
+
+    </script>
+</head>
+<body>
+    <h2>Site Feedback</h2>
+    <h4>Please provide your comments about our new site.</h4>
+    <form name="frmGuestBook">
+        <pre>
+    Your interest in products from our site:
+        Electronis  : <input type="checkbox" name="chkElectronics" value="Electronicx" />
+        Sports      : <input type="checkbox" name="chkSports" value="Sports"/>
+        Photography : <input type="checkbox" name="chkPhotography" value="Phtoto"/>
+    <br/>
+    E-mail Address: <input name="txtEmail" id="txtEmail" size="40" maxlength="40" value="" />
+
+    Rating:         
+        <input type="radio" name="rating"
+               value="Excellent" checked="checked"> Excellent<br/>
+        <input type="radio" name="rating"
+               value="Very Good"> Very Good<br/>
+        <input type="radio" name="rating" value="Good"> Good<br/>
+        <input type="radio" name="rating" value="Fair"> Fair<br/>
+        <input type="radio" name="rating" value="Poor"> Poor<br/>
+    General Comments:
+        <textarea name="txaComments" id="txaComments" rows="5" cols="80"></textarea>
+        <input type="button" name="btnSubmit"
+               id="btnSubmit" value="Submit Comments" />     <input type="reset" value="Reset" />
+        <br/>
+        
+   </pre>
+    </form>
+</body>
+</html>

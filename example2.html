@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Test of JQuery </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {  // like body onload
+            $("body").css({ 'background-color': 'rgb(255,255,180)', 'color': 'green' });
+
+            $("input[name='btnTest']").click(function () {
+                $("p.mainHeading").hide();
+                //$(mypara).css("background-color","red");});  // one paragraph
+                $("p").css("background-color", "red"); // all paragraphs
+                $("#rnews").removeClass('blueYellowStyle');
+                $("#rnews").addClass('redYellowStyle');
+            });
+
+            $("input[name='btnTest2']").click(function () {
+                $("#rnews").removeClass('redYellowStyle');
+                $("#rnews").addClass('blueYellowStyle');
+            });
+
+            $(mypara).mouseover(function () { $(this).css("background-color", 'rgb(200,200,255)'); });
+            $(mypara).mouseout(function () { $(this).css("background-color", "white"); });
+
+            $("li").mouseover(function () {  //$("li").mouseover(function () {
+                $(this).removeClass('blueYellowStyle').removeClass('mainHeading');
+                $(this).addClass('redYellowStyle');
+            });
+            $("li").mouseout(function () { // $("li.first").mouseout(function () {
+                $(this).removeClass('redYellowStyle');
+                $(this).addClass('blueYellowStyle').addClass('mainHeading');
+            });
+
+        });
+    </script>
+    <style type="text/css">
+        .mainHeading {
+            font-size: 14pt;
+            color: blue;
+            background-color: yellow;
+        }
+
+        .redYellowStyle {
+            color: red;
+            background-color: white;
+        }
+
+        .blueYellowStyle {
+            color: blue;
+            background-color: yellow;
+        }
+
+        .greenYellowStyle {
+            color: green;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p class="mainHeading"> This is a test of jquery </p>
+
+    <p id="mypara"> Apply jquery style to it </p>
+    <p id="mypara2"> This is second paragraph </p>
+    <ul>
+        <li class='first'> First Item in the List
+        <li class='second'> Second Item in the List
+        <li class='Third'> Third Item in the List
+    </ul>
+
+    <div id="rnews">Recent News for XYZ Corporation </div>
+
+    <input type="button" value="Test" name="btnTest" />
+    <input type="button" value="Test2" name="btnTest2" />
+</body>
+</html>

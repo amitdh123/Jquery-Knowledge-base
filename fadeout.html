@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--JQEx5.html-->
+<head>
+    <title></title>
+    <style type="text/css">
+        .info {
+            border:1px solid red;
+            font-size:18pt;
+            color:green;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnFadeOut").click(function () {
+                $("div#test").add("p").html("test of fading in JQuery").fadeOut(10000).addClass("info");
+                //$("div#test p").remove(); not working
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" name="btnFadeOut" id="btnFadeOut" value="Fade Out"/>
+    <div id="test">
+    </div>
+</body>
+</html>

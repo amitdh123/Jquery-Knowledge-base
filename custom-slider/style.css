@@ -1,0 +1,3 @@
+.slider{width: 720px; height: 450px;text-align: center;overflow: hidden;}
+.slidingimages{width: 8000px;display: block;margin: 0px;padding: 0px;height: 400px;}
+.slide{float: left;width: 720px; height: 450px;list-style-type: none;}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#btnApply1").click(function(){changePara1();});
+            $("#btnApply2").click(function(){changePara2();});
+            $("#btnApplyChild").click(function(){changeChildStyle();});
+                //alert("here");
+                //changePara1(); // $('#mypara').css("background-color" , "yellow").css("border" , "1px solid red");
+            //});
+            //$("#btnApply2").click(function () { changePara2() });
+            //$(btnApplyChild).click(function () { changeChildStyle() });
+        });
+
+       function changePara1() {
+
+            // basic jquery syntax  $(selector).action()
+            // you can chain many actions
+            // no quotes around mypara, or use "#mypara"
+            $("#mypara").css("border", "1px solid red").css("background-color", "yellow");
+            // both backgroundColor and background-color are acceptable 
+     // in above css call  
+        }
+
+        function changePara2() {
+           // you can pass a json string with multiple name value 
+    // pairs. No quotes around { }
+            $(mypara).css({"border":"1px solid yellow","background-Color":"green", "color":"yellow"});
+        }
+
+        function changeChildStyle() {
+            // div>p[id=#imp] will not work, also div cannot be inside a p
+            // div p[id=imp] will also work
+            // p:nth-child(1)   selects all paras that are first level
+      // children of a tag (indexing starts at 1)
+            // div>p:nth-child(1) all paras that are first child of div
+            $("div>p:nth-child(1)").css({ "border": "1px solid yellow", "background-Color": "green", "color": "yellow" });
+        }
+    </script>
+</head>
+<body>
+    <div> 
+        jquery is ver popular Javascript library
+        <p id="imp">
+            jquery selectors are the best part of jquery
+        </p>
+        <p>
+            Sometimes the selectors are tricky i.e., when to use # and when not to
+        </p>
+    </div>
+    <p id="mypara"> Apply jquery style to it </p>
+    <input type="button" value="Change Para Style 1" name="btnApply1" id="btnApply1" />
+    <input type="button" value="Change Para Style 2" name="btnApply2" id="btnApply2" />
+    <input type="button" value="Change Child Style" name="btnApplyChild" id="btnApplyChild" />
+</body>
+</html>

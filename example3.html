@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Test of JQuery </title>
+    <style type="text/css">
+        body {
+            font: 10pt;
+            font-family: Arial;
+        }
+        .mainHeading {
+            font-size: 14pt;
+            color: blue;
+            background-color: yellow;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {  // like body onload
+            $("body").css({ 'backgroundColor': '#ffffa0', 'color': '#f00000' });
+           
+            $("#testm").mousemove(function (e) {
+                var out1 = e.clientX + ":" + e.clientY;
+                $("#mp").css({ 'left': e.clientX, 'top': e.clientY, 'width': 100, 'height': 20 });
+                $("#mp").html(out1);
+            });  //pageX, pageY for page coordinates
+
+          //  $("#testm").click(function (e) { alert(e.clientX + ":" + e.clientY) });  // both mousemove and click do not work together on div
+        });
+    </script>
+   
+</head>
+<body>
+    <p class="mainHeading"> This is a test of jquery </p>
+    <div id="mp" style="position:absolute;border:1px solid blue;"></div>
+
+    <div id="testm" style="width:300px;height:200px;border:1px solid red;">test area for mouse move </div>
+    <input type="button" value="Test" name="btnTest" id="btnTest" />
+</body>
+</html>
